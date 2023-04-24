@@ -14,7 +14,7 @@ CREATE TABLE tweets_jsonb (
 -- the views below represent normalized tables
 --------------------------------------------------------------------------------    
 
-CREATE VIEW tweets AS (
+CREATE  VIEW tweets AS (
     SELECT 
         data->>'id' AS id_tweets, 
         data->'user'->>'id' AS id_users,
@@ -52,7 +52,7 @@ CREATE VIEW tweet_mentions AS (
 );
 
 
-CREATE VIEW tweet_tags AS (
+CREATE  VIEW tweet_tags AS (
     SELECT DISTINCT id_tweets, '$' || (jsonb->>'text'::TEXT) AS tag
     FROM (
         SELECT
