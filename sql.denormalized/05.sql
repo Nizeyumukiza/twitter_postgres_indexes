@@ -2,8 +2,8 @@
  * Calculates the hashtags that are commonly used for English tweets containing the word "coronavirus"
  */
 with tweet_dtags as(
-    select data->>'id' AS id_tweets, to_tsvector('simple',COALESCE(data->'entities'->>'hashtags')) AS tag1,
-    to_tsvector('simple',COALESCE(data->'extended_tweet'->'entities'->>'hashtags')) AS tag2
+    select data->>'id' AS id_tweets, to_tsvector('simple',COALESCE(data->'entities'->'hashtags')) AS tag1,
+    to_tsvector('simple',COALESCE(data->'extended_tweet'->'entities'->'hashtags')) AS tag2
     from tweets_jsonb
 ),
 

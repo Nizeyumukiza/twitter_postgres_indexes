@@ -17,7 +17,7 @@ services:
     build: services/pg_normalized_batch
     volumes:
       - ./:/tmp/db
-      - $HOME/bigdata/pg_normalized_batch:/var/lib/postgresql/data1
+      - $HOME/bigdata/pg_normalized_batch:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=pass
